@@ -11,6 +11,8 @@ const App = () => {
   const dispatch = useDispatch();
   const contacts = useSelector((state) => state.contacts);
   const filter = useSelector((state) => state.filter); 
+  const status = useSelector((state) => state.contacts.status);
+  const error = useSelector((state) => state.contacts.error);
 
   useEffect(() => {
     dispatch(fetchContacts());
@@ -53,7 +55,9 @@ const App = () => {
         }}>
         Phonebook
       </h1>
+
       <ContactForm onAddContact={handleAddContact} />
+
       <h2
         style={{
           margin: "0 ,auto",
@@ -65,7 +69,12 @@ const App = () => {
         }}>
         Contacts:
       </h2>
+      
       <Filter value={filter} onChange={handleFilterChange} />
+
+      {status === 'loading' && <p>Loading...</p>}
+      {error && <p>Error: {error}</p>}
+
       <ContactList
         contacts={filteredContacts()}
         onDeleteContacts={handleDeletedContact}
