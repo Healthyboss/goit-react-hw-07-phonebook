@@ -69,14 +69,14 @@ const App = () => {
         }}>
         Contacts:
       </h2>
-      
+
       <Filter value={filter} onChange={handleFilterChange} />
 
       {status === 'loading' && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
 
       <ContactList
-        contacts={filteredContacts()}
+        contacts={filteredContacts}
         onDeleteContacts={handleDeletedContact}
       />
     </div>
