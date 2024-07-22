@@ -76,7 +76,7 @@ const App = () => {
       {error && <p>Error: {error}</p>}
 
       <ContactList
-        contacts={filteredContacts}
+        contacts={filteredContacts()}
         onDeleteContacts={handleDeletedContact}
       />
     </div>
