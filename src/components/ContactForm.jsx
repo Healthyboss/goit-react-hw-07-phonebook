@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import PropTypes from "prop-types";
 import styles from "./ContactForm.module.css"
 
-const ContactForm = ({onAddContact}) =>{
+const ContactForm = ({onAddContact}) => {
     const[name, setName] = useState('');
     const[number, setNumber] = useState('');
 
@@ -18,8 +18,7 @@ const ContactForm = ({onAddContact}) =>{
    return(
     <form className={styles.form} onSubmit={handleSubmit}>
         <label className={styles.fieldName}>
-              Full Name:
-            <input className={styles.input}
+              Full Name: <input className={styles.input}
                 type="text"
                 name="name"
                 pattern= "[A-Za-zÀ-ÿąęłńóśźżĄĘŁŃÓŚŹŻ ]+"
@@ -31,8 +30,7 @@ const ContactForm = ({onAddContact}) =>{
         </label>
 
         <label className={styles.fieldName}>
-              Telephone Number:
-            < input className={styles.input}
+              Telephone Number <input className={styles.input}
                 type="tel"
                 name="number"
                 pattern="\+?[0-9\s\-]+"
@@ -43,16 +41,13 @@ const ContactForm = ({onAddContact}) =>{
             />
         </label>
 
-        <button className={styles.button} type="submit">Add Contact</button>
+        <button className={styles.button} type="submit"> Add Contact </button>
     </form>
    )
 }
 
 ContactForm.propTypes ={
-    name: PropTypes.string,
-    setName: PropTypes.func,
-    number: PropTypes.string,
-    setNumber: PropTypes.func,
-    addContact: PropTypes.func,
+ onAddContact: PropTypes.func.isRequired,
 }
+
 export default ContactForm;
