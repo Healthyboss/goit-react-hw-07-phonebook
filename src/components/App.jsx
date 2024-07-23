@@ -75,10 +75,14 @@ const App = () => {
       {status === 'loading' && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
 
+      
+      {Array.isArray(contacts) && (
       <ContactList
         contacts={filteredContacts()}
         onDeleteContacts={handleDeletedContact}
       />
+      )}
+      
     </div>
   );
 };
